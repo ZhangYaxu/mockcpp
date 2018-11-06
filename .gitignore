@@ -4,4 +4,5 @@ CMakeFiles
 *.a
 Makefile
 cmake_install.cmake
+*Def.h
 
