@@ -231,6 +231,12 @@ Stub* returnObjectList( const Any& o01
 
 
 template <typename T>
+Stub* increase(const T& from, const T& to, const T& step)
+{
+   return new TypelessStubAdapter(new IncrementStub<T>(from, to, step));
+}
+
+template <typename T>
 Stub* increase(const T& from, const T& to)
 {
    return new TypelessStubAdapter(new IncrementStub<T>(from, to));

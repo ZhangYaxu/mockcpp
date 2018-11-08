@@ -30,12 +30,16 @@ MOCKCPP_NS_START
 template <typename T>
 struct IncrementStub : public TypelessStub
 {
+    IncrementStub(T startValue, T endValue, T stepValue)
+       : from(startValue), to(endValue), current(startValue), setp(stepValue), hasEnd(true)
+    {}
+
     IncrementStub(T startValue, T endValue)
-       : from(startValue), to(endValue), current(startValue), hasEnd(true)
+       : from(startValue), to(endValue), current(startValue), step(1), hasEnd(true)
     {}
 
     IncrementStub(T startValue)
-       : from(startValue), current(startValue), hasEnd(false)
+       : from(startValue), current(startValue), step(1), hasEnd(false)
     {}
 
     bool isCompleted() const
@@ -52,7 +56,7 @@ struct IncrementStub : public TypelessStub
     {
        checkEnd();
        value = Any(current);
-       current++;
+       current += step;
        return value;
     }
 
@@ -97,11 +101,12 @@ private:
 
     Any value;
 
-    bool hasEnd;
-
-    T current;
     T from;
     T to;
+    T current;
+    T step;
+
+    bool hasEnd;
 };
 
 MOCKCPP_NS_END
