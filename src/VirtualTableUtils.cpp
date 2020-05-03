@@ -13,7 +13,7 @@ MOCKCPP_NS_START
 ///////////////////////////////////////////////////////////////////////
 namespace
 {
-#if defined(__GNUC__)
+#if defined(__GNUC__) || defined(__ICCARM__)
    const unsigned int EXTRA_VTBL_SLOT = 2;
 #elif defined(_MSC_VER)
    const unsigned int EXTRA_VTBL_SLOT = 1;

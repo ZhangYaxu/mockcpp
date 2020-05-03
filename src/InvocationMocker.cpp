@@ -227,7 +227,7 @@ void InvocationMocker::addStub(Stub* stub)
 }
 
 ///////////////////////////////////////////////////////////
-const InvocationId* const InvocationMocker::getId(void) const
+const InvocationId* InvocationMocker::getId(void) const
 {
     return This->id;
 }

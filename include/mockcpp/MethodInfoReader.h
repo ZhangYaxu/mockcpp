@@ -18,7 +18,7 @@
 #ifndef __MOCKCPP_METHOD_INFO_READER_H
 #define __MOCKCPP_METHOD_INFO_READER_H
 
-#if defined(__GNUC__)
+#if defined(__GNUC__) || defined(__ICCARM__)
 #include <mockcpp/GnuMethodInfoReader.h>
 #include <mockcpp/GnuMethodIndicesChecker.h>
 #endif
@@ -27,7 +27,7 @@
 #include <mockcpp/MsvcMethodInfoReader.h>
 #endif
 
-#if !defined(__GNUC__)
+#if !defined(__GNUC__) && !defined(__ICCARM__)
 #include <mockcpp/GenericMethodIndicesChecker.h>
 #endif
 

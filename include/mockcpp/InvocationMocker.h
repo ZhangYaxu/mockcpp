@@ -44,7 +44,7 @@ struct InvocationMocker : public SelfDescribe
     bool hasBeenInvoked(void) const ;
 
     void setId(InvocationId* id);
-    const InvocationId* const getId(void) const;
+    const InvocationId* getId(void) const;
 
     bool matches(const Invocation& inv) const;
     Any& invoke(const Invocation& inv);
