@@ -35,6 +35,10 @@ struct Any : public AnyBase
       : AnyBase(new ValueHolder<ValueType>(value))
    {}
 
+#if 0
+   Any(const char* value);
+#endif
+   
    Any(const Any & other);
 
 public:

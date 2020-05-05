@@ -47,12 +47,27 @@
 
 #define BUILD_FOR_X64 1
 #define BUILD_FOR_X86 0
+#define BUILD_FOR_ARM 0
 
-#else	
+#elif defined __ICCARM__
+#define BUILD_FOR_X64 0
+#define BUILD_FOR_X86 0
+#define BUILD_FOR_ARM 1
+
+#else
 
 #define BUILD_FOR_X64 0
 #define BUILD_FOR_X86 1
+#define BUILD_FOR_ARM 0	
 
+#endif
+
+#if 0
+template <bool condition>
+struct static_assert
+{
+    typedef int static_assert_failure[condition ? 1 : -1];
+};
 #endif
 
 #endif // __MOCKCPP_H

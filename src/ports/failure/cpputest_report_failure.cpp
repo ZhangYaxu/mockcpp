@@ -15,7 +15,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ***/
-
+#include <string>
 #include <mockcpp/mockcpp.h>
 #include <CppUTest/TestHarness.h>
 
@@ -25,7 +25,7 @@ void
 reportFailure(unsigned srcline, const char* srcfile,
              const std::string& message)
 {
-    Utest::getCurrent()->fail(message.c_str(), srcfile, srcline);
+    UtestShell::getCurrent()->fail(message.c_str(), srcfile, srcline);
 }
 
 

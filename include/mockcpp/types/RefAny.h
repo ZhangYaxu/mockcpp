@@ -30,9 +30,13 @@ struct RefAny : public AnyBase
 
    template <typename ValueType>
    RefAny(const ValueType& value)
-      : AnyBase(new RefHolder<ValueType>(value))
+      : AnyBase(new RefHolder<const ValueType>(value))
    {}
 
+#if 1
+   RefAny(const char* value);
+   RefAny(char* value);
+#endif
 
    RefAny(const RefAny & other);
 

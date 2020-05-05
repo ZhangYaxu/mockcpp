@@ -100,7 +100,7 @@ struct PredictTypeTraits<bool (Predict::*)(T)>
 template <typename Predict>
 Constraint* checkWith(Predict pred)
 {
-    typedef typename PredictTypeTraits<BOOST_TYPEOF(&Predict::operator())>::ParaType T; 
+    typedef typename PredictTypeTraits<typename BOOST_TYPEOF(&Predict::operator())>::ParaType T; 
     return new CheckWith<T, Predict>(pred);
 }
 
@@ -115,7 +115,7 @@ Constraint* checkWith(bool (*pred)(T))
 template <typename Proc>
 Constraint* processWith(Proc proc)
 {
-    typedef typename PredictTypeTraits<BOOST_TYPEOF(&Proc::operator())>::ParaType T; 
+    typedef typename PredictTypeTraits<typename BOOST_TYPEOF(&Proc::operator())>::ParaType T; 
     return new ProcessWith<T, Proc>(proc);
 }
 

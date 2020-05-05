@@ -29,7 +29,7 @@
 MOCKCPP_NS_START
 
 ///////////////////////////////////////////////////////
-std::string toBufferString(void* buf, size_t size);
+std::string toBufferString(void* buf, std::size_t size);
 
 ///////////////////////////////////////////////////////
 template <typename T>

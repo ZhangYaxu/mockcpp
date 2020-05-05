@@ -8,6 +8,8 @@
 # include "JmpCodeX64.h"
 #elif BUILD_FOR_X86
 # include "JmpCodeX86.h"
+#elif BUILD_FOR_ARM
+# include "JmpCodeARM.h"
 #endif
 
 #endif

@@ -1,8 +1,5 @@
-*.pyc
 CMakeCache.txt
 CMakeFiles
-*.a
-Makefile
+Library
 cmake_install.cmake
-*Def.h
-
+settings

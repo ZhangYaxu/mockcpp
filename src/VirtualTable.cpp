@@ -175,6 +175,8 @@ void
 VirtualTableImpl::reset()
 {
    #include <mockcpp/DefaultMethodAddrGetterDef.h>
+//MOCKCPP_GET_DESTRUCTOR_ADDR(0)
+//MOCKCPP_GET_DESTRUCTOR_ADDR(1)
 
    expectsBeingDeleted = false;
    expectsKeepAlive = false;

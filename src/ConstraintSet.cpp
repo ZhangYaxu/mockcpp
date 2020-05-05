@@ -98,20 +98,6 @@ ConstraintSetImpl::matches(const Invocation& inv) const
 ////////////////////////////////////////////////////////////
 #define INIT_CONSTRAINT(i) This->constraints.push_back(p##i)
 
-ConstraintSet::ConstraintSet(unsigned int which, Constraint* p)
-   : This(new ConstraintSetImpl())
-{
-    if(which >= 12 || p == 0) return;
-
-    for(unsigned int i=0; i<which; i++)
-    {
-        This->constraints.push_back(any());
-    }
-
-    
-    This->constraints.push_back(p);
-}
-
 ConstraintSet::ConstraintSet(
                Constraint* p1
              , Constraint* p2

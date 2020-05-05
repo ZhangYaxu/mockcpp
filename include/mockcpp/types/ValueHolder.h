@@ -30,7 +30,6 @@
 #include <mockcpp/IsEqual.h>
 #include <mockcpp/Void.h>
 #include <mockcpp/IsAnythingHelper.h>
-#include <mockcpp/Ignore.h>
 
 MOCKCPP_NS_START
 

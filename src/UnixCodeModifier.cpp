@@ -19,7 +19,7 @@
 
 #include <string.h>
 #include <inttypes.h>
-#include <sys/mman.h>
+//#include <sys/mman.h>
 
 #include <mockcpp/CodeModifier.h>
 
@@ -34,20 +34,28 @@ MOCKCPP_NS_START
 
 bool CodeModifier::modify(void *dest, const void *src, size_t size)
 {
+
+#if 0
     if(::mprotect(ALIGN_TO_PAGE_BOUNDARY(dest), PAGE_SIZE * 2, PROT_EXEC | PROT_WRITE | PROT_READ ) != 0)
     {  
        return false; 
     }
-
     ::memcpy(dest, src, size);
+#endif
 
-
-#if 0
+#if 1
 	#if BUILD_FOR_X86
 	//(void)memcpy(dest, src, size); // something wrong on linux: after memcpy(or 5 single byte copy),  the 4 bytes following jmp, src is 0x07c951b0, but dest is 0x07b851b0. so use unsigned int *, it works ok.
 	*((unsigned char *)dest) = *((unsigned char *)src);
 	*((unsigned long *)((unsigned long)dest + 1)) = *((unsigned long *)((unsigned long)src + 1));
-	#else
+        #elif BUILD_FOR_ARM
+        dest = (unsigned char *)((unsigned long)dest & 0xfffffffe);
+        //::memcpy((unsigned char *)((unsigned long)dest & 0xfffffffe), src, size);
+        *((unsigned char *)dest) =  *((unsigned char *)((unsigned long)src + 2));
+	*((unsigned char *)((unsigned long)dest + 1)) = *((unsigned char *)((unsigned long)src + 3));
+	*((unsigned char *)((unsigned long)dest + 2)) = *((unsigned char *)((unsigned long)src + 0));
+	*((unsigned char *)((unsigned long)dest + 3)) = *((unsigned char *)((unsigned long)src + 1));
+        #else
 	*((unsigned char *)dest) = *((unsigned char *)src);
 	*((unsigned char *)((unsigned long)dest + 1)) = *((unsigned char *)((unsigned long)src + 1));
     // after this line, dest+2 is 0x00c90000, not 0, so change it.

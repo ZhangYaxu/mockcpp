@@ -28,13 +28,13 @@ struct UselessType {};
 
 ////////////////////////////////////////////////////
 template < typename R
-#include <mockcpp/ArgumentsListDef.h>
+#include "ArgumentsListDef.h"
          >
 struct ArgumentsList {};
 
 
 template < typename R
-#include <mockcpp/ArgumentsListDef.h>
+#include "ArgumentsListDef.h"
          >
 struct ArgumentsListConst {};
 

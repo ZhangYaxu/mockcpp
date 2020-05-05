@@ -60,7 +60,7 @@ private:
 private:
 
     template<typename ValueType>
-    friend ValueType * __type_any_cast(AnyBase *);
+    friend ValueType * __any_cast(AnyBase *);
 };
 
 MOCKCPP_NS_END

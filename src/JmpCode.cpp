@@ -52,10 +52,13 @@ struct JmpCodeImpl
    unsigned char m_code[JMP_CODE_SIZE];
 };
 
+#include <stdio.h>
 ///////////////////////////////////////////////////
 JmpCode::JmpCode(const void* from, const void* to)
    : This(new JmpCodeImpl(from, to))
 {
+   printf("\r\nJump from 0x%x to 0x%x\r\n", from, to);
+   printf("OpCode 0x%x , 0x%x\r\n", This->getCodeData(), *((unsigned long *)(This->getCodeData())));
 }
 
 ///////////////////////////////////////////////////

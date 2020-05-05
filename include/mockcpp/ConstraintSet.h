@@ -31,8 +31,6 @@ struct ConstraintSetImpl;
 
 struct ConstraintSet: public StatelessMatcher
 {
-    ConstraintSet(unsigned int which, Constraint* p);
-
     ConstraintSet( Constraint* p01 = any()
                  , Constraint* p02 = any()
                  , Constraint* p03 = any()

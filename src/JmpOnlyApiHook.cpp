@@ -22,7 +22,7 @@
 #include "JmpOnlyApiHook.h"
 #include <mockcpp/JmpCode.h>
 #include <mockcpp/CodeModifier.h>
-
+#include <stdio.h>
 MOCKCPP_NS_START
 
 ////////////////////////////////////////////////////////
@@ -49,19 +49,23 @@ struct JmpOnlyApiHookImpl
    void saveOriginalData()
    {
       m_originalData = new char[m_jmpCode.getCodeSize()];
-      ::memcpy(m_originalData, m_api, m_jmpCode.getCodeSize());
+      ::memcpy(m_originalData, (unsigned char *)((unsigned long)m_api & 0xFFFFFFFE), m_jmpCode.getCodeSize());
    }
 
    /////////////////////////////////////////////////////
    void startHook()
    {
+     printf("Install hook ");
       saveOriginalData();
+     printf("store origin 0x%x ",m_originalData);
       changeCode(m_jmpCode.getCodeData());
+     printf("jump code 0x%x", m_jmpCode.getCodeData() );
    }
 
    /////////////////////////////////////////////////////
    void stopHook()
    {
+     printf(" Uninstall hook ");
       changeCode(m_originalData);
       delete [] m_originalData;
    }

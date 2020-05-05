@@ -121,17 +121,17 @@ std::string toHexStr(int val)
 { return toHexStr((unsigned int)val&0xFFFFFFFF); }
 
 //////////////////////////////////////////
-std::string toBufferString(void* buf, size_t size)
+std::string toBufferString(void* buf, std::size_t size)
 {
    oss_t oss;
 
-   size_t sz = std::min(size, size_t(4));
+   std::size_t sz = std::min(size, size_t(4));
 
    unsigned char* p = (unsigned char*)buf;
 
    oss << "[";
 
-   for(size_t i=0; i < sz; i++)
+   for(std::size_t i=0; i < sz; i++)
    {
       oss << toFixedSizedHexStr(p[i]);
       if(i != sz - 1)

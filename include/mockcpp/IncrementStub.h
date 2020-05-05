@@ -31,7 +31,7 @@ template <typename T>
 struct IncrementStub : public TypelessStub
 {
     IncrementStub(T startValue, T endValue, T stepValue)
-       : from(startValue), to(endValue), current(startValue), setp(stepValue), hasEnd(true)
+       : from(startValue), to(endValue), current(startValue), step(stepValue), hasEnd(true)
     {}
 
     IncrementStub(T startValue, T endValue)
