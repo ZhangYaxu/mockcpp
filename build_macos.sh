@@ -1,0 +1,4 @@
+#CPPUTEST_HOME=~/miaohappy/mico/taami/cpputest/
+CPPUTEST_HOME=${PWD}/../cpputest/
+cmake . -DMOCKCPP_XUNIT=CppUTest -DMOCKCPP_XUNIT_HOME=${CPPUTEST_HOME} -DCMAKE_CXX_COMPILER=g++-9 -DCMAKE_C_COMPILER=gcc-9
+make

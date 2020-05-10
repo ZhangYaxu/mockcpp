@@ -25,7 +25,7 @@ void
 reportFailure(unsigned srcline, const char* srcfile,
              const std::string& message)
 {
-    Utest::getCurrent()->fail(message.c_str(), srcfile, srcline);
+    UtestShell::getCurrent()->fail(message.c_str(), srcfile, srcline);
 }
 
 
