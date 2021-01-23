@@ -49,7 +49,7 @@
 #define BUILD_FOR_X86 0
 #define BUILD_FOR_ARM 0
 
-#elif defined（__ICCARM__）
+#elif defined (__ICCARM__)
 #define BUILD_FOR_X64 0
 #define BUILD_FOR_X86 0
 #define BUILD_FOR_ARM 1

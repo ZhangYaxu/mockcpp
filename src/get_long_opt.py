@@ -32,7 +32,7 @@ def getOpt(longOpts):
 	try:
 		return getopt.getopt(sys.argv[1:], '', getAssignableOptStrings(longOpts))
 	except getopt.GetoptError as err:
-		print(str(err),file=sys.stderr)
+                print (sys.stderr, str(err))
 		usage(longOpts)
 		sys.exit(2)
 
